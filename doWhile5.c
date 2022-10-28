@@ -7,27 +7,28 @@ int main() {
     float saldoA, suma=0;
 
     do{
-        printf("Ingrese el numero de cuenta (valor negativo para finalizar): ");
+        printf("\nIngrese el numero de cuenta (valor negativo para finalizar): ");
         scanf("%i", &numeroC);
 
-        if(numeroC>=0) {
-            printf("Ingrese saldo: ");
-            scanf("%i", &numeroC);
-        }
+         if(numeroC>=0) {
+                printf("Ingrese un saldo: ");
+                scanf("%f", &saldoA);
 
-    } while(numeroC<0);
+                if(saldoA>0) {
+                printf("\nEl estado de la cuenta es saldo Acreedor");
+                suma=suma+saldoA;
+                } else {
+                if(saldoA<0) {
+                    printf("\nEl estado de la cuenta es saldo Deudor");
+                    } else {
+                        printf("\nEl estado de la cuenta es saldo Nulo");
+                    }
+                }
+             }
 
-    printf("\nEl valor acumulado o la suma es: %i", suma);
+    } while(numeroC>=0);
 
-    if(suma==0) {
-        printf("\nEl valor acumulado es cero");
-    } else {
-        if(suma>0) {
-            printf("\nEl valor acumulado es positivo");
-        } else {
-            printf("\nEl valor acumulado es negativo");
-        }
-    }
+    printf("\nTotal de saldo acreedores: %f", suma);
 
     getch();
     return 0;
