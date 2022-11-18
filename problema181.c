@@ -70,11 +70,11 @@ int cantidadNodos(struct nodo *reco, int *cant) {
 }
 
 int cantidadHojas(struct nodo *reco, int *cantHojas) {
-    if(reco!=NULL){
-            if()
-        (*cantHojas)++;
-        cantidadNodos(reco->der, cantHojas);
-        cantidadNodos(reco->izq, cantHojas);
+    if (reco != NULL) {
+        if (reco->izq == NULL && reco->der == NULL)
+            (*cantHojas)++;
+        cantidadHojas(reco->izq,cant);
+        cantidadHojas(reco->der,cant);
     }
 }
 
@@ -92,6 +92,44 @@ void borrar(struct nodo *reco){
         borrar(reco->der);
         free(reco);
     }
+}
+
+void retornarAltura(struct nodo *reco, int nivel,int *altura){
+    if (reco != NULL){
+        retornarAltura(reco->izq, nivel + 1,altura);
+        if (nivel>*altura)
+            *altura = nivel;
+        retornarAltura(reco->der, nivel + 1,altura);
+    }
+}
+
+ void mayorValor(){
+    if (raiz != NULL){
+        struct nodo *reco = raiz;
+        while (reco->der != NULL)
+            reco = reco->der;
+        printf("Mayor valor del arbol:%i\n", reco->info);
+    }
+}
+
+void borrarMenor(){
+     if (raiz != NULL) {
+         struct nodo *bor;
+         if (raiz->izq == NULL){
+             bor = raiz;
+             raiz = raiz->der;
+             free(bor);
+         } else {
+             struct nodo *atras = raiz;
+             struct nodo *reco = raiz->izq;
+             while (reco->izq != NULL){
+                 atras = reco;
+                 reco = reco->izq;
+             }
+             atras->izq = reco->der;
+             free(reco);
+         }
+     }
 }
 
 int main() {
