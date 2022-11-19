@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1668808393 source:c:\users\wposs\documents\liseth\proyecto002\main.c
+	<stdio.h>
+	"productos.h"
+
+1668808327 c:\users\wposs\documents\liseth\proyecto002\productos.h
+
+1668808386 source:c:\users\wposs\documents\liseth\proyecto002\producto.c
+	<stdio.h>
+	"productos.h"
+
