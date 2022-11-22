@@ -3,8 +3,6 @@
 #include "productos.h"
 
 void registrar(venta *ventas){
-    int id, dd, mm, aa;
-    char nombre[41];
     printf("Ingrese el codigo de la venta: ");
     scanf("%i", &(*ventas).id);
     fflush(stdin);
@@ -31,9 +29,11 @@ void imprimirVentas(venta v){
 
 int inventario(){
     int opcion;
-    producto prod1={1, "Carne", 9000, 10};
-    producto prod2={2, "Leche", 5000, 15};
-    producto prod3={3, "Arroz", 6000, 100};
+    producto nuevo;
+    producto lista;
+    producto lista1[0]={1, "Carne", 9000, 50};
+    producto lista2[1]={2, "Leche", 5000, 15};
+    producto lista3[2]={3, "Arroz", 6000, 100};
     do {
         printf("------INVENTARIO------\n");
         printf("1. Crear producto\n");
@@ -44,9 +44,11 @@ int inventario(){
         switch(opcion){
             case 1:
                 system("cls");
+                registrarProducto(&nuevo);
                 break;
             case 2:
                 system("cls");
+                productosLista(nuevo);
                 break;
             case 3:
                 system("pause");
@@ -57,34 +59,30 @@ int inventario(){
                 printf("Opcion incorrecta ingrese una opcion valida\n");
         }
     } while(opcion!=3);
-
     getch();
     return 0;
 }
 
-/*void imprimirProductos(producto p){
-    printf("----PRODUCTOS----\n");
-    printf("Codigo: %i\n", v.id);
-    printf("Fecha: %i/%i/%i\n", v.fechaRegistro.dd, v.fechaRegistro.mm, v.fechaRegistro.aa);
-    printf("Comprador: %s\n", v.nombreC);
-    printf("\n");
-} */
+void registrarProducto(producto *nuevo){
+    printf("Ingrese los datos del producto\n");
+    printf("Codigo: ");
+    scanf("%i", &(*nuevo).id);
+    fflush(stdin);
+    printf("Nombre: ");
+    gets((*nuevo).nombre);
+    printf("Precio:");
+    scanf("%f", &(*nuevo).precio);
+    fflush(stdin);
+    printf("Cantidad: ");
+    scanf("%i", &(*nuevo).cantidad);
+    printf("-----Registro exitoso-----\n");
+}
 
-/*productoNuevo(){
-    for(int x=0; x<3;x++){
-        int id, cantidad;
-        char nombre[41];
-        float precio;
-        printf("Ingrese el codigo del producto: ");
-        scanf("%i", &nuevoProd.id);
-        fflush(stdin);
-        printf("Ingrese el nombre del producto: ");
-        gets(nuevoProd.nombre);
-        printf("Ingrese el precio del producto: ");
-        scanf("%f", &nuevoProd.precio);
-        printf("Ingrese la cantidad disponible del producto: ");
-        scanf("%f", &nuevoProd.precio);
-        printf("-----Registro exitoso-----\n");
-        return nuevoProd;
-    }
-} */
+void productosLista(producto p){
+    printf("----Inventario Productos----\n");
+    printf("Codigo: %i\n", p.id);
+    printf("Nombre: %s\n", p.nombre);
+    printf("Precio: %0.2f\n", p.precio);
+    printf("Cantidad: %i\n", p.cantidad);
+    printf("\n");
+}

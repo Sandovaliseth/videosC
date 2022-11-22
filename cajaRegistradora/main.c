@@ -2,13 +2,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "productos.h"
-#define TAM 50
 
 int main(){
     int opcion, cont=0;
     venta dato;
-    venta *lista;
-    lista = malloc(sizeof(venta));
     do {
         printf("------Menu Principal------\n");
         printf("1. Registrar venta\n");
@@ -40,7 +37,6 @@ int main(){
         }
     } while(opcion!=4);
 
-    free(lista);
     getch();
     return 0;
 }
