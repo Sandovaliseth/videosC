@@ -1,11 +1,14 @@
 #include<conio.h>
 #include<stdio.h>
+#include<stdlib.h>
 #include "productos.h"
+#define TAM 50
 
 int main(){
-    int opcion;
-    int cont=0;
-    venta listado[cont];
+    int opcion, cont=0;
+    venta dato;
+    venta *lista;
+    lista = malloc(sizeof(venta));
     do {
         printf("------Menu Principal------\n");
         printf("1. Registrar venta\n");
@@ -17,7 +20,7 @@ int main(){
         switch(opcion){
             case 1:
                 system("cls");
-                listado[cont]=registrar();
+                registrar(&dato);
                 cont++;
                 break;
             case 2:
@@ -26,7 +29,7 @@ int main(){
                 break;
             case 3:
                 system("cls");
-                imprimirVentas(cont, listado);
+                imprimirVentas(dato);
                 break;
             case 4:
                 printf("------FIN PROGRAMA------\n");
@@ -37,6 +40,7 @@ int main(){
         }
     } while(opcion!=4);
 
+    free(lista);
     getch();
     return 0;
 }

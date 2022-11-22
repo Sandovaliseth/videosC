@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1669067501 source:c:\users\wposs\documents\liseth\cajaregistradora\main.c
+1669136497 source:c:\users\wposs\documents\liseth\cajaregistradora\main.c
 	<conio.h>
 	<stdio.h>
+	<stdlib.h>
 	"productos.h"
 
-1669067256 c:\users\wposs\documents\liseth\cajaregistradora\productos.h
+1669136503 c:\users\wposs\documents\liseth\cajaregistradora\productos.h
 
-1669067641 source:c:\users\wposs\documents\liseth\cajaregistradora\productos.c
+1669142554 source:c:\users\wposs\documents\liseth\cajaregistradora\productos.c
 	<conio.h>
 	<stdio.h>
 	"productos.h"

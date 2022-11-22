@@ -2,35 +2,31 @@
 #include<stdio.h>
 #include "productos.h"
 
-venta registrar(){
-    venta ventas;
+void registrar(venta *ventas){
     int id, dd, mm, aa;
     char nombre[41];
     printf("Ingrese el codigo de la venta: ");
-    scanf("%i", &ventas.id);
+    scanf("%i", &(*ventas).id);
     fflush(stdin);
     printf("Ingrese la fecha: ");
     printf("\nDia:");
-    scanf("%i", &ventas.fechaRegistro.dd);
+    scanf("%i", &(*ventas).fechaRegistro.dd);
     printf("Mes:");
-    scanf("%i", &ventas.fechaRegistro.mm);
+    scanf("%i", &(*ventas).fechaRegistro.mm);
     printf("Anio:");
-    scanf("%i", &ventas.fechaRegistro.aa);
+    scanf("%i", &(*ventas).fechaRegistro.aa);
     fflush(stdin);
     printf("Ingrese el nombre del comprador: ");
-    gets(ventas.nombreC);
+    gets((*ventas).nombreC);
     printf("-----Registro exitoso-----\n");
-    return ventas;
 }
 
-void imprimirVentas(int cont, venta v[cont]){
+void imprimirVentas(venta v){
     printf("----LISTADO VENTAS----\n");
-    for(int i=0; i<cont; i++){
-        printf("Codigo: %i\n", v[i].id);
-        printf("Fecha: %i/%i/%i\n", v[i].fechaRegistro.dd, v[i].fechaRegistro.mm, v[i].fechaRegistro.aa);
-        printf("Comprador: %s\n", v[i].nombreC);
-        printf("\n");
-    }
+    printf("Codigo: %i\n", v.id);
+    printf("Fecha: %i/%i/%i\n", v.fechaRegistro.dd, v.fechaRegistro.mm, v.fechaRegistro.aa);
+    printf("Comprador: %s\n", v.nombreC);
+    printf("\n");
 }
 
 int inventario(){
@@ -53,9 +49,9 @@ int inventario(){
                 system("cls");
                 break;
             case 3:
+                system("pause");
                 system("cls");
-                main();
-                exit(0);
+                return main();
                 break;
             default:
                 printf("Opcion incorrecta ingrese una opcion valida\n");
@@ -66,21 +62,29 @@ int inventario(){
     return 0;
 }
 
-producto nuevo(int t, producto prod[t]){
-    producto nuevoProd;
-    int id, cantidad;
-    char nombre[41];
-    float precio;
-    printf("Ingrese el codigo del producto: ");
-    scanf("%i", &nuevoProd.id);
-    fflush(stdin);
-    printf("Ingrese el nombre del producto: ");
-    gets(nuevoProd.nombre);
-    printf("Ingrese el precio del producto: ");
-    scanf("%f", &nuevoProd.precio);
-    printf("Ingrese la cantidad disponible del producto: ");
-    scanf("%f", &nuevoProd.precio);
-    printf("-----Registro exitoso-----\n");
-    return nuevoProd;
-}
+/*void imprimirProductos(producto p){
+    printf("----PRODUCTOS----\n");
+    printf("Codigo: %i\n", v.id);
+    printf("Fecha: %i/%i/%i\n", v.fechaRegistro.dd, v.fechaRegistro.mm, v.fechaRegistro.aa);
+    printf("Comprador: %s\n", v.nombreC);
+    printf("\n");
+} */
 
+/*productoNuevo(){
+    for(int x=0; x<3;x++){
+        int id, cantidad;
+        char nombre[41];
+        float precio;
+        printf("Ingrese el codigo del producto: ");
+        scanf("%i", &nuevoProd.id);
+        fflush(stdin);
+        printf("Ingrese el nombre del producto: ");
+        gets(nuevoProd.nombre);
+        printf("Ingrese el precio del producto: ");
+        scanf("%f", &nuevoProd.precio);
+        printf("Ingrese la cantidad disponible del producto: ");
+        scanf("%f", &nuevoProd.precio);
+        printf("-----Registro exitoso-----\n");
+        return nuevoProd;
+    }
+} */

@@ -18,6 +18,6 @@ typedef struct {
     producto productos;
 } venta;
 
-venta registrar();
-void imprimirVentas(int cont, venta v[cont]);
+void registrar(venta *v);
+void imprimirVentas(venta v);
 inventario();
