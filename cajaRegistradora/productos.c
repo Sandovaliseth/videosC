@@ -1,30 +1,37 @@
 #include<conio.h>
 #include<stdio.h>
 #include "productos.h"
+#define tam 100
 
-void registrar(venta *ventas){
-    printf("Ingrese el codigo de la venta: ");
-    scanf("%i", &(*ventas).id);
-    fflush(stdin);
-    printf("Ingrese la fecha: ");
-    printf("\nDia:");
-    scanf("%i", &(*ventas).fechaRegistro.dd);
-    printf("Mes:");
-    scanf("%i", &(*ventas).fechaRegistro.mm);
-    printf("Anio:");
-    scanf("%i", &(*ventas).fechaRegistro.aa);
-    fflush(stdin);
-    printf("Ingrese el nombre del comprador: ");
-    gets((*ventas).nombreC);
-    printf("-----Registro exitoso-----\n");
+void registrar(venta *v){
+    int cont=0;
+    cont++;
+    for(int i=0; i<cont; i++){
+        printf("Ingrese el codigo de la venta: ");
+        scanf("%i", &v[i].id);
+        fflush(stdin);
+        printf("Ingrese la fecha: ");
+        printf("\nDia:");
+        scanf("%i", &v[i].fechaRegistro.dd);
+        printf("Mes:");
+        scanf("%i", &v[i].fechaRegistro.mm);
+        printf("Anio:");
+        scanf("%i", &v[i].fechaRegistro.aa);
+        fflush(stdin);
+        printf("Ingrese el nombre del comprador: ");
+        gets(v[i].nombreC);
+        printf("-----Registro exitoso-----\n");
+    }
 }
 
-void imprimirVentas(venta v){
+void imprimirVentas(int cont, venta *v){
     printf("----LISTADO VENTAS----\n");
-    printf("Codigo: %i\n", v.id);
-    printf("Fecha: %i/%i/%i\n", v.fechaRegistro.dd, v.fechaRegistro.mm, v.fechaRegistro.aa);
-    printf("Comprador: %s\n", v.nombreC);
-    printf("\n");
+    for(int i=0; i<cont; i++){
+        printf("Codigo: %i\n", v[i].id);
+        printf("Fecha: %i/%i/%i\n", v[i].fechaRegistro.dd, v[i].fechaRegistro.mm, v[i].fechaRegistro.aa);
+        printf("Comprador: %s\n", v[i].nombreC);
+        printf("\n");
+    }
 }
 
 int inventario(){

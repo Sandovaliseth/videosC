@@ -3,9 +3,13 @@
 #include<stdlib.h>
 #include "productos.h"
 
+#define tam 100
+
 int main(){
     int opcion, cont=0;
-    venta dato;
+    venta *dato;
+    venta vec[tam];
+    dato=vec;
     do {
         printf("------Menu Principal------\n");
         printf("1. Registrar venta\n");
@@ -17,7 +21,7 @@ int main(){
         switch(opcion){
             case 1:
                 system("cls");
-                registrar(&dato);
+                registrar(vec);
                 cont++;
                 break;
             case 2:
@@ -26,7 +30,7 @@ int main(){
                 break;
             case 3:
                 system("cls");
-                imprimirVentas(dato);
+                imprimirVentas(cont, dato);
                 break;
             case 4:
                 printf("------FIN PROGRAMA------\n");
