@@ -3,13 +3,10 @@
 #include<stdlib.h>
 #include "productos.h"
 
-#define tam 100
-
 int main(){
-    int opcion, cont=0;
-    venta *dato;
-    venta vec[tam];
-    dato=vec;
+    int opcion, cont=0, tam=100;
+    int *lista;
+    lista=malloc(tam*sizeof(venta));
     do {
         printf("------Menu Principal------\n");
         printf("1. Registrar venta\n");
@@ -21,7 +18,7 @@ int main(){
         switch(opcion){
             case 1:
                 system("cls");
-                registrar(vec);
+                registrar(lista);
                 cont++;
                 break;
             case 2:
@@ -30,7 +27,7 @@ int main(){
                 break;
             case 3:
                 system("cls");
-                imprimirVentas(cont, dato);
+                imprimirVentas(cont, lista);
                 break;
             case 4:
                 printf("------FIN PROGRAMA------\n");
@@ -41,6 +38,7 @@ int main(){
         }
     } while(opcion!=4);
 
+    free(lista);
     getch();
     return 0;
 }

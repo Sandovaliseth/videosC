@@ -1,12 +1,10 @@
 #include<conio.h>
 #include<stdio.h>
 #include "productos.h"
-#define tam 100
 
 void registrar(venta *v){
-    int cont=0;
-    cont++;
-    for(int i=0; i<cont; i++){
+    int tam=1;
+    for(int i=0; i<tam; i++){
         printf("Ingrese el codigo de la venta: ");
         scanf("%i", &v[i].id);
         fflush(stdin);
@@ -22,6 +20,7 @@ void registrar(venta *v){
         gets(v[i].nombreC);
         printf("-----Registro exitoso-----\n");
     }
+     tam++;
 }
 
 void imprimirVentas(int cont, venta *v){
